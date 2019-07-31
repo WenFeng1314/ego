@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ego-order</artifactId>
+        <groupId>com.sxt</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>order-service</artifactId>
+     <dependencies>
+         <dependency>
+             <artifactId>order-api</artifactId>
+             <groupId>com.sxt</groupId>
+             <version>1.0-SNAPSHOT</version>
+         </dependency>
+         <dependency>
+             <artifactId>order-mapper</artifactId>
+             <groupId>com.sxt</groupId>
+             <version>1.0-SNAPSHOT</version>
+         </dependency>
+         <!--调用GoodsService-->
+         <dependency>
+             <artifactId>manager-api</artifactId>
+             <groupId>com.sxt</groupId>
+             <version>1.0-SNAPSHOT</version>
+         </dependency>
+         <!--调用CartService-->
+         <dependency>
+             <artifactId>portal-api</artifactId>
+             <groupId>com.sxt</groupId>
+             <version>1.0-SNAPSHOT</version>
+         </dependency>
+
+     </dependencies>
+
+</project>

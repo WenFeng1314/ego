@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    <context:property-placeholder location="classpath:properties/common.properties,classpath:properties/db.properties"/>
+    <context:component-scan base-package="com.sxt.aspect.service"></context:component-scan>
+    <import resource="classpath:spring-aop.xml"/>
+    <import resource="classpath:spring-dao.xml" />
+    <import resource="classpath:spring-service.xml" />
+    <import resource="classpath:spring-dubbo-provider.xml" />
+    <import resource="classpath:spring-solr.xml"/>
+    <import resource="spring-task.xml"/>
+    <import resource="classpath:spring-redis.xml"/>
+    <import resource="classpath:spring-mq-consumer.xml"/>
+</beans>

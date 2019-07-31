@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 单独的连接工厂 -->
+    <bean id="connectionFactory"
+          class="org.apache.activemq.ActiveMQConnectionFactory">
+        <constructor-arg name="brokerURL" value="${mq.url}"></constructor-arg>
+    </bean>
+    <!-- 池特性的连接工厂 -->
+    <bean id="cacheConnectionFactory"
+          class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg name="targetConnectionFactory"
+                         ref="connectionFactory"></constructor-arg>
+        <property name="sessionCacheSize" value="${mq.size}"></property>
+    </bean>
+    <!-- 消息的发送者，生产者 JmsTempalte -->
+    <bean id="jmsTemplate"
+          class="org.springframework.jms.core.JmsTemplate">
+        <constructor-arg name="connectionFactory"
+                         ref="cacheConnectionFactory"></constructor-arg>
+        <!-- 主题模式 -->
+        <property name="pubSubDomain" value="true"></property>
+    </bean>
+
+
+
+</beans>
